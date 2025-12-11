@@ -2,14 +2,23 @@
 
 Snowflake Open Lakehouse on AWS with Athena and Apache Iceberg Tables
 
+
 ### AWS Athena
 
 <img width="2503" height="1247" alt="image" src="https://github.com/user-attachments/assets/86bd3719-ef6f-475a-b719-b5629e2bdb37" />
+
 
 ### AWS Configuration - Role
 
 
 <img width="2223" height="982" alt="image" src="https://github.com/user-attachments/assets/a327ca3c-6c4b-4218-a4f5-0d5c3e7f051c" />
+
+### AWS Configuration - IAM Policy
+
+
+<img width="2247" height="790" alt="image" src="https://github.com/user-attachments/assets/2e2f6d81-ed05-439d-add0-6dd67e835340" />
+
+<img width="1642" height="1035" alt="image" src="https://github.com/user-attachments/assets/2aaa0174-169d-4bae-a511-a633f03c3060" />
 
 
 ### AWS S3 Apache Iceberg
