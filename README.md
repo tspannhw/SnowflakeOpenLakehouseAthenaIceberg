@@ -193,16 +193,63 @@ order by sale_date desc
 <img width="2238" height="619" alt="image" src="https://github.com/user-attachments/assets/a94dfb6e-7c59-4804-b772-86bd4c797d91" />
 
 
+
 ### Snowflake Tables
 
 
+### Snowflake Create Catalog Integration to AWS Glue
+
+`````
+CREATE CATALOG INTEGRATION glue_rest_catalog_int
+  CATALOG_SOURCE = ICEBERG_REST
+  TABLE_FORMAT = ICEBERG
+  CATALOG_NAMESPACE = 'tspann'
+  REST_CONFIG = (
+    CATALOG_URI = 'https://glue.us-east-1.amazonaws.com/iceberg'
+    CATALOG_API_TYPE = AWS_GLUE
+    CATALOG_NAME = '484577546576'
+  )
+  REST_AUTHENTICATION = (
+    TYPE = SIGV4
+    SIGV4_IAM_ROLE = 'arn:aws:iam::484577546576:role/tspann-glue-athena-s3-iceberg-role'
+    SIGV4_SIGNING_REGION = 'us-east-1'
+  )
+  ENABLED = TRUE;
+
+`````
+
+### Snowflake Examine New Glue REST Integration 
+
+* get values and set in role
+
+`````
+  DESCRIBE CATALOG INTEGRATION glue_rest_catalog_int;
+
+`````
+
+
+### Snowflake - Create table
+
+`````
+
+CREATE ICEBERG TABLE SALES_DATA_ICEBERG_RW
+CATALOG = glue_rest_catalog_int
+EXTERNAL_VOLUME = TRANSCOM_TSPANNICEBERG_EXTVOL
+CATALOG_TABLE_NAME = 'sales_data'
+CATALOG_NAMESPACE = 'tspann';
+
+
+`````
+
+  
 <img width="926" height="1190" alt="image" src="https://github.com/user-attachments/assets/b9a9fa47-c84b-4cff-9f2d-7fe6395f1df5" />
+
 
 ### Resources
 
 * https://www.snowflake.com/en/engineering-blog/snowflake-platform-data-lake/
 * https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table-aws-glue
-* 
+* https://docs.snowflake.com/en/user-guide/tables-iceberg-configure-catalog-integration-glue 
 
 
 
