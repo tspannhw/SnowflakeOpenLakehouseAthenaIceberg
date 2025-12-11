@@ -174,6 +174,83 @@ order by sale_date desc
 <img width="1657" height="625" alt="image" src="https://github.com/user-attachments/assets/a841557d-4b97-4318-8354-5adbaa589f5a" />
 
 
+`````
+
+Create IAM Role and Policy in amazonaws 
+
+Role 
+
+ARN: arn:aws:iam::484577546576:role/tspann-glue-athena-s3-iceberg-role
+tspann-glue-athena-s3-iceberg-rol
+
+Trust Policy
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::x:user/fnhu0000-s"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "StringEquals": {
+                    "sts:ExternalId": [
+                        "LXB29530_SFCRole=x=",
+                        "LXB29530_SFCRole=x=",
+                        "LXB29530_SFCRole=4_UBnbm/x="
+                    ]
+                }
+            }
+        }
+    ]
+}
+
+
+Policy 
+
+arn:aws:iam::x:policy/tspann-glue-athena-s3-iceberg
+
+tspann-glue-athena-s3-iceberg 
+
+Permissions
+
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowGlueCatalogTableAccess",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:ListBucket",
+                "glue:GetCatalog",
+                "glue:GetDatabase",
+                "glue:GetDatabases",
+                "glue:GetPartitions",
+                "glue:CreateDatabase",
+                "glue:DeleteDatabase",
+                "glue:GetTable",
+                "glue:GetTables",
+                "glue:CreateTable",
+                "glue:UpdateTable",
+                "glue:DeleteTable"
+            ],
+            "Resource": [
+                "arn:aws:glue:*x:table/*/*",
+                "arn:aws:glue:*:x:catalog",
+                "arn:aws:glue:*:x:database/tspann",
+                "arn:aws:s3:::se-tspann-apacheiceberg"
+            ]
+        }
+    ]
+}
+
+`````
 
 
 ### AWS Configuration - IAM Policy
