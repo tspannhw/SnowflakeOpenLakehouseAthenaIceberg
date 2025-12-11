@@ -159,7 +159,8 @@ order by sale_date desc
 100	1904	Wireless Mouse	2025-10-15	58.03
 
 
-````
+`````
+
 
 <img width="2503" height="1247" alt="image" src="https://github.com/user-attachments/assets/86bd3719-ef6f-475a-b719-b5629e2bdb37" />
 
