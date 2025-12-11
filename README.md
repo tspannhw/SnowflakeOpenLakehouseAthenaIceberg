@@ -363,6 +363,7 @@ VALUES
 * https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table-aws-glue
 * https://docs.snowflake.com/en/user-guide/tables-iceberg-configure-catalog-integration-glue
 * https://docs.snowflake.com/en/user-guide/tables-iceberg-auto-refresh
+* https://docs.snowflake.com/en/sql-reference/sql/create-catalog-integration-glue
 
 
 
