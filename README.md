@@ -207,11 +207,11 @@ CREATE CATALOG INTEGRATION glue_rest_catalog_int
   REST_CONFIG = (
     CATALOG_URI = 'https://glue.us-east-1.amazonaws.com/iceberg'
     CATALOG_API_TYPE = AWS_GLUE
-    CATALOG_NAME = '484577546576'
+    CATALOG_NAME = 'YOUR12DIGITAWSACCOUNT'
   )
   REST_AUTHENTICATION = (
     TYPE = SIGV4
-    SIGV4_IAM_ROLE = 'arn:aws:iam::484577546576:role/tspann-glue-athena-s3-iceberg-role'
+    SIGV4_IAM_ROLE = 'arn:aws:iam::YOUR12DIGITAWSACCOUNT:role/tspann-glue-athena-s3-iceberg-role'
     SIGV4_SIGNING_REGION = 'us-east-1'
   )
   ENABLED = TRUE;
@@ -220,7 +220,9 @@ CREATE CATALOG INTEGRATION glue_rest_catalog_int
 
 ### Snowflake Examine New Glue REST Integration 
 
-* get values and set in role
+* Get values and set in role
+* API_AWS_IAM_USER_ARN
+* API_AWS_EXTERNAL_ID
 
 `````
   DESCRIBE CATALOG INTEGRATION glue_rest_catalog_int;
@@ -241,6 +243,34 @@ CATALOG_NAMESPACE = 'tspann';
 
 `````
 
+### Snowflake - Query and Examine Table
+
+
+`````
+
+SELECT item_name, SUM(revenue) AS total_revenue
+FROM DEMO.DEMO.SALES_DATA_ICEBERG_RW
+GROUP BY 1;
+
+SHOW ICEBERG TABLES
+->> SELECT *
+FROM $1
+WHERE "catalog_name" = 'glue_rest_catalog_int';
+
+
+`````
+
+
+### Snowflake - Test an Insert
+
+`````
+
+INSERT INTO DEMO.DEMO.SALES_DATA_ICEBERG_RW
+VALUES 
+    (105, 'Laptop', DATE '2025-12-04', 2250.99),
+    (106, 'Mouse', DATE '2025-12-05', 17.61);
+
+`````
   
 <img width="926" height="1190" alt="image" src="https://github.com/user-attachments/assets/b9a9fa47-c84b-4cff-9f2d-7fe6395f1df5" />
 
