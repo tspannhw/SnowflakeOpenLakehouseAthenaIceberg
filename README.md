@@ -46,3 +46,12 @@ Snowflake Open Lakehouse on AWS with Athena and Apache Iceberg Tables
 * https://www.snowflake.com/en/engineering-blog/snowflake-platform-data-lake/
 * https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table-aws-glue
 * 
+
+
+
+
+### Parquet File Rapid Copy
+
+
+
+<img width="3494" height="1683" alt="image" src="https://github.com/user-attachments/assets/c3b54cc9-1f72-4b4a-ba7a-28463aa77545" />
