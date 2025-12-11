@@ -2,6 +2,8 @@
 
 Snowflake Open Lakehouse on AWS with Athena and Apache Iceberg Tables
 
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/4c7bc514-6d77-4237-be38-002d1fe1ed86" />
+
 
 ### AWS Athena
 
